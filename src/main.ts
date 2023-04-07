@@ -16,8 +16,14 @@ import "element-plus/theme-chalk/dark/css-vars.css";
 import "@/styles/theme/css-vars.css";
 // 自定义 element组件 样式
 import "@/styles/element.scss";
-// 注册全局自定义指令
+// 注册全局自定义指令 -- 返回参数有些问题，暂时没有引入到use中
 import directives from "@/directives/index";
+// vue 路由
+import router from "@/router/index";
+// Vue I18n 是 Vue.js 的国际化插件
+import I18n from "@/languages/index";
+// pinia 状态管理
+import pinia from "@/stores/index";
 
 const app = createApp(App);
 
@@ -25,3 +31,5 @@ const app = createApp(App);
 Object.keys(ElementPlusIconsVue).forEach(key => {
 	app.component(key, ElementPlusIconsVue[key as keyof typeof ElementPlusIconsVue]);
 });
+
+app.use(ElementPlus).use(router).use(I18n).use(pinia).mount("#app");
