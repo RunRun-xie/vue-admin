@@ -1,0 +1,10 @@
+# .prettierignore文件是用来告诉Prettier哪些文件不需要进行代码格式化的
+/dist/*
+/html/*
+.local
+/node_modules/**
+
+**/*.svg
+**/*.sh
+
+/public/*
