@@ -2,6 +2,8 @@ import { createApp } from "vue";
 import App from "./App.vue";
 // 导入重置样式
 import "@/styles/reset.scss";
+// Css 动画
+import "animate.css";
 // 导入CSS通用样式表
 import "@/styles/common.scss";
 // element plus

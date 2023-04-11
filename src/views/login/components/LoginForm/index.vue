@@ -1,7 +1,7 @@
 <template>
-	<div>首页</div>
+	<div class=""> </div>
 </template>
 
 <script setup lang="ts"></script>
 
-<style lang="scss" scoped></style>
+<style scoped lang="scss"></style>
