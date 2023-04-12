@@ -15,7 +15,7 @@ import "element-plus/dist/index.css";
 // element dark(内置暗黑模式)
 import "element-plus/theme-chalk/dark/css-vars.css";
 // custom element dark(自定义暗黑模式)
-import "@/styles/theme/css-vars.css";
+import "@/styles/theme/css-vars.scss";
 // 自定义 element组件 样式
 import "@/styles/element.scss";
 // 注册全局自定义指令 -- 返回参数有些问题，暂时没有引入到use中

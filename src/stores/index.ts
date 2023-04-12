@@ -1,5 +1,7 @@
 import { defineStore, createPinia } from "pinia";
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
+import { DEFAULT_THEME } from "@/config/config";
+import type { IThemeConfigProps } from "./interface";
 
 // defineStore 调用后返回一个函数，调用该函数获得 Store 实体
 export const GlobalStore = defineStore({
@@ -8,7 +10,14 @@ export const GlobalStore = defineStore({
 	// state: 返回对象的函数
 	state: () => ({
 		// token
-		token: ""
+		token: "",
+		// 主题配置
+		themeConfig: {
+			// 深色模式
+			isDark: false,
+			//  默认 primary 主题颜色
+			primary: DEFAULT_THEME
+		}
 	}),
 	// Getter 完全等同于 Store 状态的 计算值。
 	// 它们可以用 defineStore() 中的 getters 属性定义。
@@ -21,6 +30,11 @@ export const GlobalStore = defineStore({
 		// setToken
 		setToken(token: string) {
 			this.token = token;
+		},
+
+		// 改变主题颜色
+		setThemeConfig(themeConfig: IThemeConfigProps) {
+			this.themeConfig = themeConfig;
 		}
 	},
 	persist: true

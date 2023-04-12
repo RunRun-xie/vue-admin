@@ -1,6 +1,7 @@
 <template>
 	<div class="login-container flx-center">
 		<div class="login-box">
+			<SwitchDark class="switch-dark" />
 			<section class="animate__bounceIn">
 				<div class="login-form">
 					<div class="login-left">
@@ -11,8 +12,8 @@
 							<img class="login-icon" src="@/assets/images/logo.svg" alt="" />
 							<h2 class="logo-text">RunTu-Admin</h2>
 						</div>
-						<LoginForm></LoginForm
-					></div>
+						<LoginForm></LoginForm>
+					</div>
 				</div>
 			</section>
 		</div>
@@ -23,6 +24,7 @@
 <script setup lang="ts">
 import LoginBg from "./components/CornerStyle/index.vue";
 import LoginForm from "./components/LoginForm/index.vue";
+import SwitchDark from "@/components/SwitchDark/index.vue";
 </script>
 
 <style lang="scss" scoped>
