@@ -5,7 +5,6 @@ import vue from "@vitejs/plugin-vue";
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
 	const env = loadEnv(mode, process.cwd(), "");
-	console.log(env.VITE_PROXY_URL, "env");
 
 	return {
 		server: {

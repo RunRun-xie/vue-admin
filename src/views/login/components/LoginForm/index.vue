@@ -33,6 +33,7 @@
 import { ref, reactive, onMounted } from "vue";
 import type { Login } from "@/api/interface";
 import type { FormInstance, FormRules } from "element-plus";
+import { loginAPI } from "@/api/modules/login";
 
 const ruleFormRef = ref<FormInstance>();
 const loginRules = reactive<FormRules>({
@@ -52,7 +53,9 @@ const handleLogin = async (formEl: FormInstance | undefined) => {
 	if (!formEl) return;
 	await formEl.validate((valid, fields) => {
 		if (valid) {
-			console.log("submit!");
+			loginAPI(loginForm).then(res => {
+				console.log(res, "111");
+			});
 		} else {
 			console.log("error submit!", fields);
 		}
