@@ -1,22 +1,42 @@
 import { defineStore, createPinia } from "pinia";
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 import { DEFAULT_THEME } from "@/config/config";
-import type { IThemeConfigProps } from "./interface";
+import type { GlobalState, ThemeConfigProps } from "./interface";
 
 // defineStore 调用后返回一个函数，调用该函数获得 Store 实体
 export const GlobalStore = defineStore({
 	// id: 必须的，在所有 Store 中唯一
 	id: "GlobalState",
 	// state: 返回对象的函数
-	state: () => ({
+	state: (): GlobalState => ({
 		// token
 		token: "",
 		// 主题配置
 		themeConfig: {
+			// 当前页面是否全屏
+			maximize: false,
+			// 布局切换 ==>  纵向：vertical | 经典：classic | 横向：transverse | 分栏：columns
+			layout: "vertical",
+			// 默认 primary 主题颜色
+			primary: DEFAULT_THEME,
 			// 深色模式
 			isDark: false,
-			//  默认 primary 主题颜色
-			primary: DEFAULT_THEME
+			// 灰色模式
+			isGrey: false,
+			// 色弱模式
+			isWeak: false,
+			// 折叠菜单
+			isCollapse: false,
+			// 面包屑导航
+			breadcrumb: true,
+			// 面包屑导航图标
+			breadcrumbIcon: true,
+			// 标签页
+			tabs: true,
+			// 标签页图标
+			tabsIcon: true,
+			// 页脚
+			footer: true
 		}
 	}),
 	// Getter 完全等同于 Store 状态的 计算值。
@@ -33,7 +53,7 @@ export const GlobalStore = defineStore({
 		},
 
 		// 改变主题颜色
-		setThemeConfig(themeConfig: IThemeConfigProps) {
+		setThemeConfig(themeConfig: ThemeConfigProps) {
 			this.themeConfig = themeConfig;
 		}
 	},

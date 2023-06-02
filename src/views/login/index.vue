@@ -10,7 +10,7 @@
 					<div class="login-right">
 						<div class="login-logo">
 							<img class="login-icon" src="@/assets/images/logo.svg" alt="" />
-							<h2 class="logo-text">RunTu-Admin</h2>
+							<h2 class="logo-text">润土-Admin</h2>
 						</div>
 						<LoginForm></LoginForm>
 					</div>

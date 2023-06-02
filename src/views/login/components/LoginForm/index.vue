@@ -30,10 +30,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted } from "vue";
+import { ref, reactive } from "vue";
 import type { Login } from "@/api/interface";
 import type { FormInstance, FormRules } from "element-plus";
 import { loginAPI } from "@/api/modules/login";
+import md5 from "js-md5";
+import { GlobalStore } from "@/stores";
+import { useRouter } from "vue-router";
+import { HOME_URL } from "@/config/config";
+
+const globalStore = GlobalStore();
+const router = useRouter();
 
 const ruleFormRef = ref<FormInstance>();
 const loginRules = reactive<FormRules>({
@@ -41,7 +48,7 @@ const loginRules = reactive<FormRules>({
 	password: [{ required: true, message: "请输入密码", trigger: "blur" }]
 });
 
-const loginForm = reactive<Login.ReqLoginForm>({ username: "", password: "" });
+const loginForm = reactive<Login.ReqLoginForm>({ username: "admin", password: "123456" });
 
 // 记住密码
 const checked = ref<Boolean>(false);
@@ -49,13 +56,13 @@ const checked = ref<Boolean>(false);
 const loginLoading = ref<Boolean>(false);
 
 // 登录
-const handleLogin = async (formEl: FormInstance | undefined) => {
+const handleLogin = (formEl: FormInstance | undefined) => {
 	if (!formEl) return;
-	await formEl.validate((valid, fields) => {
+	formEl.validate(async (valid, fields) => {
 		if (valid) {
-			loginAPI(loginForm).then(res => {
-				console.log(res, "111");
-			});
+			const { data }: any = await loginAPI({ ...loginForm, password: md5(loginForm.password) });
+			globalStore.setToken(data.access_token);
+			router.push(HOME_URL);
 		} else {
 			console.log("error submit!", fields);
 		}

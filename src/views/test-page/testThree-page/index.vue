@@ -1,7 +1,7 @@
 <template>
-	<div>首页12312</div>
+	<div> 测试页面三</div>
 </template>
 
 <script setup lang="ts"></script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

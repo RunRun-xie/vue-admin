@@ -1,0 +1,65 @@
+<!-- 纵向布局 -->
+<template>
+	<el-container class="layout">
+		<el-aside>
+			<div class="menu" style="width: 210px">
+				<div class="logo flx-center">
+					<img src="@/assets/images/logo.svg" alt="logo" />
+					<span>RunTu Admin</span>
+				</div>
+				<el-scrollbar>
+					<el-menu
+						:default-active="activeMenu"
+						:router="false"
+						:collapse="isCollapse"
+						:collapse-transition="false"
+						:unique-opened="true"
+						background-color="#191a20"
+						text-color="#bdbdc0"
+						active-text-color="#ffffff"
+					>
+						<SubMenu :menuList="menuList"></SubMenu>
+					</el-menu>
+				</el-scrollbar>
+			</div>
+		</el-aside>
+		<el-container>
+			<el-header> 123 </el-header>
+			123
+		</el-container>
+	</el-container>
+</template>
+
+<script setup lang="ts">
+import { computed } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { GlobalStore } from "@/stores";
+import { AuthStore } from "@/stores/modules/auth";
+import SubMenu from "@/layouts/components/Menu/index.vue";
+
+const authStore = AuthStore();
+const route = useRoute();
+const globalStore = GlobalStore();
+const menuList = computed(() => authStore.authMenuListGet);
+
+const router = useRouter();
+const routes = router.options.routes;
+
+const routerKey = () => {
+	console.log(router, "routes");
+};
+
+routerKey();
+
+// 默认加载的第一个菜单
+const activeMenu = computed(() => {
+	route.meta.activeMenu ? route.meta.activeMenu : route.path;
+});
+// 是否可以折叠菜单
+const isCollapse = computed(() => globalStore.themeConfig.isCollapse);
+console.log(route.meta.activeMenu ? route.meta.activeMenu : route.path);
+</script>
+
+<style scoped lang="scss">
+@import "./index.scss";
+</style>

@@ -1,6 +1,8 @@
 import axios from "axios";
 import type { AxiosInstance, AxiosError, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import NProgress from "@/config/nprogress";
+import { ResultEnum } from "@/enums/httpEnum";
+import { ElMessage } from "element-plus";
 
 const config = {
 	// 默认地址请求地址，可在 .env.*** 文件中修改
@@ -25,8 +27,6 @@ class RequestHttp {
 		 * @description 请求拦截器
 		 */
 		this.service.interceptors.request.use((config: InternalAxiosRequestConfig) => {
-			console.log(config, "config");
-
 			NProgress.start();
 			return config;
 		});
@@ -39,6 +39,11 @@ class RequestHttp {
 		this.service.interceptors.response.use(
 			(response: AxiosResponse) => {
 				const { data } = response || {};
+				if (data?.code !== ResultEnum.SUCCESS) {
+					ElMessage.error(data.msg);
+					NProgress.done();
+					return Promise.reject(data);
+				}
 				NProgress.done();
 				return data;
 			},
