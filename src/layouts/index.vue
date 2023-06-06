@@ -2,8 +2,8 @@
 	<component :is="LayoutComponents[themeConfig.layout]" />
 </template>
 
-<script setup lang="ts">
-import { computed, ref, type Component } from "vue";
+<script setup lang="ts" name="layout">
+import { computed, type Component } from "vue";
 import { GlobalStore } from "@/stores";
 import LayoutVertical from "./LayoutVertical/index.vue";
 

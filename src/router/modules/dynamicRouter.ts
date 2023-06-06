@@ -8,20 +8,18 @@ const modules = import.meta.glob("@/views/**/*.vue");
 export const initDynamicRouter = async () => {
 	const authStore = AuthStore();
 
-	// 3.添加动态路由
-	authStore.flatMenuListGet.forEach((item: any) => {
-		item.children && delete item.children;
-		if (item.component && isType(item.component) == "string") {
-			item.component = modules["/src/views" + item.component + ".vue"];
-		}
-		if (item.meta.isFull) {
-			router.addRoute(item);
-		} else {
-			router.addRoute("layout", item);
-		}
-	});
 	try {
+		// 	1.获取菜单列表
 		await authStore.getAuthMenuList();
+
+		// 3.添加动态路由
+		authStore.flatMenuListGet.forEach((item: any) => {
+			item.children && delete item.children;
+			if (item.component && isType(item.component) == "string") {
+				item.component = modules["/src/views" + item.component + ".vue"];
+			}
+			router.addRoute("layout", item);
+		});
 	} catch (error) {
 		console.log(error, "💢 当按钮 || 菜单请求出错时，重定向到登陆页");
 	}

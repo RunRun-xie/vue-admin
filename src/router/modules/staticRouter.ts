@@ -1,6 +1,6 @@
 import type { RouteRecordRaw } from "vue-router";
 import { HOME_URL, LOGIN_URL } from "@/config/config";
-import Layouts from "@/layouts/index.vue";
+// import Layouts from "@/layouts/index.vue";
 
 // 静态路由地址
 export const staticRouter: RouteRecordRaw[] = [
@@ -19,9 +19,9 @@ export const staticRouter: RouteRecordRaw[] = [
 	{
 		path: "/layout",
 		name: "layout",
-		component: Layouts,
+		component: () => import("@/layouts/index.vue"),
 		// component: () => import("@/layouts/indexAsync.vue"),
-		redirect: HOME_URL,
+		redirect: "/home/index",
 		children: []
 	}
 ];

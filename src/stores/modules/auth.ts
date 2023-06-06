@@ -21,8 +21,8 @@ export const AuthStore = defineStore({
 		flatMenuListGet: state => getFlatArr(state.authMenuList)
 	},
 	actions: {
-		async getAuthMenuList() {
-			const { data } = await getAuthMenuListApi();
+		getAuthMenuList() {
+			const { data } = getAuthMenuListApi();
 			this.authMenuList = data;
 		}
 	}

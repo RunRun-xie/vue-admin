@@ -25,7 +25,7 @@
 		</el-aside>
 		<el-container>
 			<el-header> 123 </el-header>
-			123
+			<Main />
 		</el-container>
 	</el-container>
 </template>
@@ -36,6 +36,7 @@ import { useRoute, useRouter } from "vue-router";
 import { GlobalStore } from "@/stores";
 import { AuthStore } from "@/stores/modules/auth";
 import SubMenu from "@/layouts/components/Menu/index.vue";
+import Main from "../components/Main/index.vue";
 
 const authStore = AuthStore();
 const route = useRoute();

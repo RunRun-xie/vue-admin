@@ -10,8 +10,8 @@ const router = createRouter({
 	history: createWebHashHistory(),
 	routes: [...staticRouter, ...errorRouter],
 	//strict： 路由 /users 将匹配 /users、/users/、甚至 /Users/
-	strict: false // 适用于所有路由
-	// scrollBehavior: () => ({ left: 0, top: 0 })
+	strict: false, // 适用于所有路由
+	scrollBehavior: () => ({ left: 0, top: 0 })
 });
 
 router.beforeEach(async (to, from, next) => {
@@ -36,10 +36,11 @@ router.beforeEach(async (to, from, next) => {
 	const authStore = AuthStore();
 	if (!authStore.authMenuListGet.length) {
 		await initDynamicRouter();
-		return next();
-		// return next({ ...to, replace: true });
+		return next({ ...to, replace: true });
 	}
-	return next();
+
+	// 7.正常访问页面
+	next();
 });
 
 /**

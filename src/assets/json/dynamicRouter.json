@@ -17,7 +17,8 @@
 		},
 		{
 			"path": "/test-page",
-			"name": "home",
+			"name": "testPage",
+			"redirect": "/test-page/testOne-page/index",
 			"meta": {
 				"icon": "MessageBox",
 				"title": "测试页面",
