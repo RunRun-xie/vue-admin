@@ -9,10 +9,20 @@
     border-right: 1px solid #191a20;
 
     .menu {
+      .el-menu {
+        overflow-x: hidden;
+        border-right: none;
+      }
+
+
       display: flex;
       flex-direction: column;
       height: 100%;
-      transition: all 0.3s ease;
+      transition: all 0.5s ease;
+
+      .el-scrollbar {
+        height: calc(100% - 55px);
+      }
 
       .logo {
         box-sizing: border-box;

@@ -1,7 +1,8 @@
 /* 自定义 element 暗黑模式样式 */
 html.dark {
 	/* 自定义深色背景颜色 */
-	---runTu-bg-color: #141414;
+	---runTu-bg-color: #0d0d0d;
+	---runTu-border-light: #4c4c4d;
 
 	// login
 	.login-container {
@@ -25,5 +26,40 @@ html.dark {
 
 	::-webkit-scrollbar-thumb {
 		background-color: var(--el-border-color-darker) !important;
+	}
+
+	// layout
+	.el-container {
+		.el-header {
+			background-color: var(---runTu-bg-color) !important;
+			border-bottom-color: var(---runTu-border-light) !important
+		}
+
+		.logo {
+			border-bottom: var(---runTu-border-light) !important
+		}
+
+		.el-main {
+			background-color: var(---runTu-bg-color) !important;
+		}
+
+		.el-footer {
+			.footer {
+				background-color: var(---runTu-bg-color) !important;
+				border-top-color: var(---runTu-border-light) !important
+			}
+		}
+	}
+
+	.el-menu,
+	.el-sub-menu,
+	.el-menu-item,
+	.el-sub-menu__title {
+		background-color: var(---runTu-bg-color) !important;
+
+
+
+
+
 	}
 }

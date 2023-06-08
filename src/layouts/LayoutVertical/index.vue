@@ -2,10 +2,10 @@
 <template>
 	<el-container class="layout">
 		<el-aside>
-			<div class="menu" style="width: 210px">
+			<div class="menu" :style="{ width: isCollapse ? '65px' : '210px' }">
 				<div class="logo flx-center">
 					<img src="@/assets/images/logo.svg" alt="logo" />
-					<span>RunTu Admin</span>
+					<span v-show="!isCollapse">RunTu Admin</span>
 				</div>
 				<el-scrollbar>
 					<el-menu
@@ -24,7 +24,9 @@
 			</div>
 		</el-aside>
 		<el-container>
-			<el-header> 123 </el-header>
+			<el-header>
+				<ToolBarLeft />
+			</el-header>
 			<Main />
 		</el-container>
 	</el-container>
@@ -37,6 +39,7 @@ import { GlobalStore } from "@/stores";
 import { AuthStore } from "@/stores/modules/auth";
 import SubMenu from "@/layouts/components/Menu/index.vue";
 import Main from "../components/Main/index.vue";
+import ToolBarLeft from "@/layouts/components/Header/ToolBarLeft.vue";
 
 const authStore = AuthStore();
 const route = useRoute();

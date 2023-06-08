@@ -52,7 +52,7 @@ export const GlobalStore = defineStore({
 			this.token = token;
 		},
 
-		// 改变主题颜色
+		// 改变主题样式
 		setThemeConfig(themeConfig: ThemeConfigProps) {
 			this.themeConfig = themeConfig;
 		}
