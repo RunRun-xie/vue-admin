@@ -30,7 +30,7 @@
 			},
 			"children": [
 				{
-					"path": "/test-page/testOne-page/index",
+					"path": "/test-page/test-one-page/index",
 					"name": "testOne",
 					"component": "/test-page/testOne-page/index",
 					"meta": {
@@ -44,7 +44,7 @@
 					}
 				},
 				{
-					"path": "/test-page/testTwo-page",
+					"path": "/test-page/test-two-page",
 					"name": "testTwo",
 					"component": "/test-page/testTwo-page/index",
 					"meta": {
@@ -58,7 +58,7 @@
 					}
 				},
 				{
-					"path": "/test-page/testThree-page",
+					"path": "/test-page/test-three-page",
 					"name": "testThree",
 					"component": "/test-page/testThree-page/index",
 					"meta": {
