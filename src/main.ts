@@ -27,6 +27,9 @@ import I18n from "@/languages/index";
 // pinia 状态管理
 import pinia from "@/stores/index";
 
+import "ol/ol.css";
+import BaiduMap from "vue-baidu-map-3x";
+
 const app = createApp(App);
 
 // 注册element Icons组件
@@ -34,4 +37,15 @@ Object.keys(ElementPlusIconsVue).forEach(key => {
 	app.component(key, ElementPlusIconsVue[key as keyof typeof ElementPlusIconsVue]);
 });
 
-app.use(ElementPlus).use(router).use(I18n).use(pinia).mount("#app");
+app
+	.use(ElementPlus)
+	.use(router)
+	.use(I18n)
+	.use(pinia)
+	.use(BaiduMap, {
+		// ak 是在百度地图开发者平台申请的密钥 详见 http://lbsyun.baidu.com/apiconsole/key */
+		ak: "TqHDrczAxXDUQWGaxFNkoXmyAaHFUYao",
+		v: "3.0", // 默认使用3.0
+		type: "BMapGL" // ||API 默认API  (使用此模式 BMap=BMapGL)
+	})
+	.mount("#app");
