@@ -60,8 +60,8 @@ const handleLogin = (formEl: FormInstance | undefined) => {
 	if (!formEl) return;
 	formEl.validate(async (valid, fields) => {
 		if (valid) {
-			const { data }: any = await loginAPI({ ...loginForm, password: md5(loginForm.password) });
-			globalStore.setToken(data.access_token);
+			// const { data }: any = await loginAPI({ ...loginForm, password: md5(loginForm.password) });
+			// globalStore.setToken(data.access_token);
 			router.push(HOME_URL);
 		} else {
 			console.log("error submit!", fields);

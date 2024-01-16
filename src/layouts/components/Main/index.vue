@@ -18,7 +18,6 @@ import Tabs from "../Tabs/index.vue";
 import { GlobalStore } from "@/stores";
 
 const globalStore = GlobalStore();
-console.log(globalStore);
 </script>
 
 <style scoped>

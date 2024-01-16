@@ -29,25 +29,9 @@ export const testRoutes: RouteRecordRaw[] = [
 			{
 				path: "/test-one",
 				name: "testOne",
-				component: () => import("@/views/test-page/testOne-page/index.vue"),
+				component: () => import("@/views/caseTest/waterfallFlow/index.vue"),
 				meta: {
-					title: "测试页一"
-				}
-			},
-			{
-				path: "/test-one",
-				name: "testOne",
-				component: () => import("@/views/test-page/testTwo-page/index.vue"),
-				meta: {
-					title: "测试页二"
-				}
-			},
-			{
-				path: "/test-one",
-				name: "testOne",
-				component: () => import("@/views/test-page/testhree-page/index.vue"),
-				meta: {
-					title: "测试页三"
+					title: "小红书瀑布流"
 				}
 			}
 		]

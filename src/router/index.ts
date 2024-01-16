@@ -24,13 +24,13 @@ router.beforeEach(async (to, from, next) => {
 	document.title = to.meta.title ? `${to.meta.title}-${title}` : title;
 
 	// 3.判断是访问登陆页，有 Token 就在当前页面，没有 Token 重置路由并放行到登陆页
-	if (to.path.toLocaleLowerCase() === "/login") {
-		if (globalStore.token) return next(from.fullPath);
-		return next();
-	}
+	// if (to.path.toLocaleLowerCase() === "/login") {
+	// 	if (globalStore.token) return next(from.fullPath);
+	// 	return next();
+	// }
 
 	// 4.判断是否有 Token，没有重定向到 login
-	if (!globalStore.token) return next({ path: LOGIN_URL, replace: true });
+	// if (!globalStore.token) return next({ path: LOGIN_URL, replace: true });
 
 	// 5.如果没有菜单列表，就重新请求菜单列表并添加动态路由
 	const authStore = AuthStore();

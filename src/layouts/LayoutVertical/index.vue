@@ -49,9 +49,7 @@ const menuList = computed(() => authStore.authMenuListGet);
 const router = useRouter();
 const routes = router.options.routes;
 
-const routerKey = () => {
-	console.log(router, "routes");
-};
+const routerKey = () => {};
 
 routerKey();
 
@@ -61,7 +59,6 @@ const activeMenu = computed(() => {
 });
 // 是否可以折叠菜单
 const isCollapse = computed(() => globalStore.themeConfig.isCollapse);
-console.log(route.meta.activeMenu ? route.meta.activeMenu : route.path);
 </script>
 
 <style scoped lang="scss">
