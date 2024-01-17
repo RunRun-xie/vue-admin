@@ -2,11 +2,7 @@
 	box-sizing: border-box;
 	padding: 10px 12px;
 	overflow-x: hidden;
-	background-color: #f0f2f5;
-
-	&::-webkit-scrollbar {
-		background-color: #f0f2f5;
-	}
+	background-color: var(--el-bg-color-page);
 }
 
 .el-footer {

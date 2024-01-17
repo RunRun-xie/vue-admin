@@ -4,7 +4,7 @@ import type { AuthState } from "@/stores/interface";
 import { getAuthMenuListApi } from "@/api/modules/login";
 
 // 身份验证存储
-export const AuthStore = defineStore({
+export const useAuthStore = defineStore({
 	id: "AuthState",
 	state: (): AuthState => ({
 		// 当前页面的 router name，用来做按钮权限筛选

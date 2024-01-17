@@ -2,10 +2,10 @@
 <template>
 	<el-container class="layout">
 		<el-aside>
-			<div class="menu" :style="{ width: isCollapse ? '65px' : '210px' }">
+			<div class="aside-box" :style="{ width: isCollapse ? '65px' : '210px' }">
 				<div class="logo flx-center">
-					<img src="@/assets/images/logo.svg" alt="logo" />
-					<span v-show="!isCollapse">RunTu Admin</span>
+					<img class="logo-img" src="@/assets/images/logo.svg" alt="logo" />
+					<span v-show="!isCollapse" class="logo-text">RunTu Admin</span>
 				</div>
 				<el-scrollbar>
 					<el-menu
@@ -14,9 +14,6 @@
 						:collapse="isCollapse"
 						:collapse-transition="false"
 						:unique-opened="true"
-						background-color="#191a20"
-						text-color="#bdbdc0"
-						active-text-color="#ffffff"
 					>
 						<SubMenu :menuList="menuList"></SubMenu>
 					</el-menu>
@@ -36,12 +33,12 @@
 import { computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { GlobalStore } from "@/stores";
-import { AuthStore } from "@/stores/modules/auth";
+import { useAuthStore } from "@/stores/modules/auth";
 import SubMenu from "@/layouts/components/Menu/index.vue";
 import Main from "../components/Main/index.vue";
 import ToolBarLeft from "@/layouts/components/Header/ToolBarLeft.vue";
 
-const authStore = AuthStore();
+const authStore = useAuthStore();
 const route = useRoute();
 const globalStore = GlobalStore();
 const menuList = computed(() => authStore.authMenuListGet);
@@ -55,8 +52,9 @@ routerKey();
 
 // 默认加载的第一个菜单
 const activeMenu = computed(() => {
-	route.meta.activeMenu ? route.meta.activeMenu : route.path;
+	return route.meta.activeMenu ? route.meta.activeMenu : route.path;
 });
+
 // 是否可以折叠菜单
 const isCollapse = computed(() => globalStore.themeConfig.isCollapse);
 </script>

@@ -9,7 +9,7 @@ export const staticRouter: RouteRecordRaw[] = [
 		redirect: HOME_URL
 	},
 	{
-		path: "/login",
+		path: LOGIN_URL,
 		name: "login",
 		component: () => import("@/views/login/index.vue"),
 		meta: {
@@ -21,7 +21,7 @@ export const staticRouter: RouteRecordRaw[] = [
 		name: "layout",
 		component: () => import("@/layouts/index.vue"),
 		// component: () => import("@/layouts/indexAsync.vue"),
-		redirect: "/home/index",
+		redirect: HOME_URL,
 		children: []
 	}
 ];

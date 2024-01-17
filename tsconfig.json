@@ -9,8 +9,9 @@
 		"sourceMap": true,
 		"resolveJsonModule": true,
 		"esModuleInterop": true,
-		"baseUrl": ".",
+		"baseUrl": "./",
 		"paths": {
+			"@": ["src"],
 			"@/*": ["src/*"]
 		},
 		"lib": ["es2020", "dom"],
@@ -19,7 +20,7 @@
 	},
 	"extends": "@vue/tsconfig/tsconfig.web.json",
 	"include": ["env.d.ts", "src/**/*", "src/**/*.vue", "src/types/*.d.ts", "public"],
-	"esModuleInterop": true,
+	"exclude": ["node_modules", "dist", "**/*.js"],
 	"references": [
 		{
 			"path": "./tsconfig.vite-config.json"

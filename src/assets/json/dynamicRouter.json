@@ -15,10 +15,11 @@
 				"isKeepAlive": true
 			}
 		},
+
 		{
-			"path": "/test-page",
-			"name": "testPage",
-			"redirect": "/test-page/testOne-page/index",
+			"path": "/caseTest",
+			"name": "caseTest",
+			"redirect": "/caseTest/waterfallFlow",
 			"meta": {
 				"icon": "MessageBox",
 				"title": "测试页面",
@@ -30,8 +31,8 @@
 			},
 			"children": [
 				{
-					"path": "/caseTest/waterfallFlow/index",
-					"name": "testOne",
+					"path": "/caseTest/waterfallFlow",
+					"name": "waterfallFlow",
 					"component": "/caseTest/waterfallFlow/index",
 					"meta": {
 						"icon": "Menu",
@@ -42,8 +43,36 @@
 						"isAffix": false,
 						"isKeepAlive": true
 					}
+				},
+				{
+					"path": "/caseTest/useCaseOne",
+					"name": "useCaseOne",
+					"component": "/caseTest/useCaseOne/index",
+					"meta": {
+						"icon": "Menu",
+						"title": "测试案例",
+						"isLink": "",
+						"isHide": false,
+						"isFull": false,
+						"isAffix": false,
+						"isKeepAlive": true
+					}
 				}
 			]
+		},
+		{
+			"path": "/about/index",
+			"name": "about",
+			"component": "/about/index",
+			"meta": {
+				"icon": "InfoFilled",
+				"title": "关于项目",
+				"isLink": "",
+				"isHide": false,
+				"isFull": false,
+				"isAffix": false,
+				"isKeepAlive": true
+			}
 		}
 	],
 	"msg": "成功"

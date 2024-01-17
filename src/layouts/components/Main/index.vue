@@ -2,9 +2,11 @@
 	<Tabs />
 	<el-main>
 		<router-view v-slot="{ Component, route }">
-			<transition appear name="fade-transform" mode="out-in">
-				<component :is="Component" :key="route.path" />
-			</transition>
+			<component :is="Component" :key="route.fullPath" />
+
+			<!-- <Transition appear name="fade-transform" mode="out-in">
+				<component :is="Component" :key="route.fullPath" />
+			</Transition> -->
 		</router-view>
 	</el-main>
 	<el-footer>
