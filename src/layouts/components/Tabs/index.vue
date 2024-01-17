@@ -75,6 +75,7 @@ const initTabs = () => {
 };
 
 onMounted(() => {
+	console.log(21);
 	initTabs();
 });
 </script>
