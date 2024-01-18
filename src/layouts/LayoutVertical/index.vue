@@ -23,6 +23,7 @@
 		<el-container>
 			<el-header>
 				<ToolBarLeft />
+				<ToolBarRightVue />
 			</el-header>
 			<Main />
 		</el-container>
@@ -32,15 +33,17 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { GlobalStore } from "@/stores";
+import { useGlobalStore } from "@/stores/modules/global";
+
 import { useAuthStore } from "@/stores/modules/auth";
 import SubMenu from "@/layouts/components/Menu/index.vue";
 import Main from "../components/Main/index.vue";
 import ToolBarLeft from "@/layouts/components/Header/ToolBarLeft.vue";
+import ToolBarRightVue from "@/layouts/components/Header/ToolBarRight.vue";
 
 const authStore = useAuthStore();
 const route = useRoute();
-const globalStore = GlobalStore();
+const globalStore = useGlobalStore();
 const menuList = computed(() => authStore.authMenuListGet);
 
 const router = useRouter();

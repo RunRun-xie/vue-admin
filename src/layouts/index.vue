@@ -4,10 +4,11 @@
 
 <script setup lang="ts" name="layout">
 import { computed, type Component } from "vue";
-import { GlobalStore } from "@/stores";
+import { useGlobalStore } from "@/stores/modules/global";
+
 import LayoutVertical from "./LayoutVertical/index.vue";
 
-const globalStore = GlobalStore();
+const globalStore = useGlobalStore();
 
 // 根据不同布局改变整体布局样式
 const LayoutComponents: { [key: string]: Component } = {

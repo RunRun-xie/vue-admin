@@ -1,0 +1,56 @@
+.not-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  .not-image {
+    width: 500px;
+    animation: continuousMove 5s ease-in-out infinite;
+    /* 连续动画，持续5秒，线性运动，无限循环 */
+  }
+
+  @keyframes continuousMove {
+
+    0%,
+    100% {
+      transform: translateY(calc(-5px + 15vh - 50%));
+    }
+
+    25%,
+    75% {
+      transform: translateY(calc(5px + 15vh - 50%));
+    }
+
+    50% {
+      transform: translateY(calc(-5px + 15vh - 50%));
+    }
+  }
+
+
+
+  .not-details {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    h2,
+    h4 {
+      padding: 0;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 60px;
+      color: var(--el-text-color-primary);
+    }
+
+    h4 {
+      margin: 30px 0 20px;
+      font-size: 19px;
+      font-weight: normal;
+      color: var(--el-text-color-regular);
+    }
+  }
+}

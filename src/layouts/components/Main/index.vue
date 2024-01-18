@@ -17,11 +17,11 @@
 <script setup lang="ts">
 import Footer from "../Footer/index.vue";
 import Tabs from "../Tabs/index.vue";
-import { GlobalStore } from "@/stores";
+import { useGlobalStore } from "@/stores/modules/global";
 
-const globalStore = GlobalStore();
+const globalStore = useGlobalStore();
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 @import "./index.scss";
 </style>

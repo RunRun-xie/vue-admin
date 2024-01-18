@@ -35,11 +35,11 @@ import type { Login } from "@/api/interface";
 import type { FormInstance, FormRules } from "element-plus";
 import { loginAPI } from "@/api/modules/login";
 import md5 from "js-md5";
-import { GlobalStore } from "@/stores";
+import { useGlobalStore } from "@/stores/modules/global";
 import { useRouter } from "vue-router";
 import { HOME_URL } from "@/config/config";
 
-const globalStore = GlobalStore();
+const globalStore = useGlobalStore();
 const router = useRouter();
 
 const ruleFormRef = ref<FormInstance>();

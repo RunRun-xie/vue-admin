@@ -51,5 +51,9 @@ export const errorRouter: RouteRecordRaw[] = [
 		meta: {
 			title: "500页面"
 		}
+	},
+	{
+		path: "/:pathMatch(.*)*",
+		component: () => import("@/components/ErrorMessage/404.vue")
 	}
 ];

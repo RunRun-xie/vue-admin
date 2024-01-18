@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory, createWebHistory } from "vue-router";
 import { staticRouter, errorRouter } from "./modules/staticRouter";
-import { GlobalStore } from "@/stores";
+import { useGlobalStore } from "@/stores/modules/global";
+
 import NProgress from "@/config/nprogress";
 import { LOGIN_URL, ROUTER_WHITE_LIST } from "@/config/config";
 import { useAuthStore } from "@/stores/modules/auth";
@@ -19,6 +20,7 @@ const router = createRouter({
 	routes: [...staticRouter, ...errorRouter],
 	//strict： 路由 /users 将匹配 /users、/users/、甚至 /Users/
 	strict: false, // 适用于所有路由
+	// 刷新时，滚动条位置还原
 	scrollBehavior: () => ({ left: 0, top: 0 })
 });
 
@@ -26,7 +28,7 @@ const router = createRouter({
  * @description 路由拦截 beforeEach
  * */
 router.beforeEach(async (to, from, next) => {
-	const globalStore = GlobalStore();
+	const globalStore = useGlobalStore();
 	const authStore = useAuthStore();
 
 	// 1.NProgress 开始

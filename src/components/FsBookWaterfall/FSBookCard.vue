@@ -35,7 +35,7 @@ const props = defineProps<{
 	&-container {
 		width: 100%;
 		height: 100%;
-		background-color: #fff;
+		background-color: var(--el-bg-color);
 	}
 	&-image {
 		width: 100%;
@@ -60,7 +60,7 @@ const props = defineProps<{
 			-webkit-box-orient: vertical;
 			-webkit-line-clamp: 2;
 			overflow: hidden;
-			color: rgba(51, 51, 51, 0.8);
+			background-color: var(--el-bg-color);
 		}
 		.author {
 			font-size: 13px;
@@ -88,7 +88,7 @@ const props = defineProps<{
 					overflow: hidden;
 					text-overflow: ellipsis;
 					white-space: nowrap;
-					color: rgba(51, 51, 51, 0.8);
+					background-color: var(--el-bg-color);
 				}
 			}
 		}
